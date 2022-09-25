@@ -6,4 +6,5 @@
 **Modules Will be Implemented for This Branch**
 - Login
 - Register
+- Search
 - Shipping Information
