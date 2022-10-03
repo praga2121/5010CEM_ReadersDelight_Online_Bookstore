@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="header">
+        <a href="Home.html" class="logo"><img alt="Logo" src="images/Logo.png"
+            width="150" height="70"></a>
+        <div class="header-right">
+            <a class="active" href="#home">Library</a>
+            <a href="#contact">About Us</a>
+            <a href="#about">Contact Us</a>
+        </div>
+        </div>
+
+        <!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br>  
+<form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+  <input type="text" placeholder="Search for Books" name="search2">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<br>
+
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <img src="images/Main.png" style="width:100%">
+  <div class="text">Image One</div>
+</div>
+
+<div class="mySlides fade">
+  <img src="images/Main.png" style="width:100%">
+  <div class="text">Image Two</div>
+</div>
+
+<div class="mySlides fade">
+  <img src="images/Main.png" style="width:100%">
+  <div class="text">Image Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+  
+  <div class="footer">
+    <p>Praga #1</p>
+  </div>
+</html> 
