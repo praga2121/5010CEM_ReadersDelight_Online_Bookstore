@@ -1,7 +1,15 @@
+<!--script file for successfully logged in alerts and page redirecting-->
+<script type="text/javascript">
+    function loginAlerts() {
+		alert("Login successful! Redirecting home page....");
+        window.location = "cart_view.php"; // Redirecting to other page.
+    }
+</script>
+
 <?php include 'includes/session.php'; ?>
 <?php
   if(isset($_SESSION['user'])){
-    header('location: cart_view.php');
+    echo '<script type="text/javascript">loginAlerts()</script>';
   }
 ?>
 <?php include 'includes/header.php'; ?>
@@ -26,11 +34,11 @@
       }
     ?>
   	<div class="login-box-body">
-    	<p class="login-box-msg">Sign in to start your session</p>
+    	<p class="login-box-msg">ACCOUNT SIGN IN</p>
 
     	<form action="verify.php" method="POST">
       		<div class="form-group has-feedback">
-        		<input type="email" class="form-control" name="email" placeholder="Email" required>
+        		<input type="text" class="form-control" name="email" placeholder="Email" required>
         		<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       		</div>
           <div class="form-group has-feedback">
@@ -44,9 +52,8 @@
       		</div>
     	</form>
       <br>
-      <a href="password_forgot.php">I forgot my password</a><br>
-      <a href="signup.php" class="text-center">Register a new membership</a><br>
-      <a href="index.php"><i class="fa fa-home"></i> Home</a>
+      <a href="signup.php" class="text-center">Register a new account</a><br>
+      <a href="index.php"><i class="fa fa-home"></i> Back to Home Page</a>
   	</div>
 </div>
 	
