@@ -55,7 +55,7 @@
 
 									try{
 										$inc = 3;	
-										$stmt = $conn->prepare("SELECT *, SUM(quantity) AS total_qty FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE MONTH(sales_date) = '$month' GROUP BY details.product_id ORDER BY total_qty DESC LIMIT 6");
+										$stmt = $conn->prepare("SELECT *, SUM(quantity) AS total_qty FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE MONTH(sales_date) = '$month' GROUP BY details.product_id ORDER BY total_qty DESC LIMIT 3");
 										$stmt->execute();
 										foreach ($stmt as $row) {
 											$image = (!empty($row['photo'])) ? 'images/'.$row['photo'] : 'images/noimage.jpg';
