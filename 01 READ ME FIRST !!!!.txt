@@ -1,0 +1,35 @@
+
+ADMIN PANEL LOGIN:
+
+Username: admin@admin.com
+Password: password
+
+
+USER LOGIN:
+
+Username: user@mail.com
+Password: user123
+
+
+For the paypal developer dashboard, you may test as below;
+Paypal dev login: https://developer.paypal.com/dashboard/accounts
+email: theshanraj13@gmail.com
+password: Theshan0181
+
+Test cases for Paypal Transaction (Checkout):
+Username: JohnLuke@personal.example.com
+Password: abcd1234
+
+
+For the Contact us page, we will be using a fake Email hosterhttps://mailgolem.com/
+Temporary Email address: mayigasi@mailgolem.com / 7ebcadb642238fad09706ef074802dfa
+Then Add this Line to your Contact form.php:
+<form target="_blank" action="https://formsubmit.co/<your temporary ID/fake email>" method="POST"> 
+
+
+
+DON'T FORGET TO CREATE A DATABASE NAMING "ecomm" AND IMPORT THE SQL FILE TO RUN.
+
+>>DATABASE FILE IS INSIDE "database" FOLDER!
+
+
