@@ -13,7 +13,7 @@
 <div class="row">
 <div class="col-sm-9">
 <h2>
-Dear readers,
+Dear Readers,
 </h2>
 <p>
 We offer a tremendous gathering of books in the various genre classifications of Fantasy, Action,
