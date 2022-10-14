@@ -179,7 +179,7 @@ paypal.Button.render({
                     	//total purchase
                         amount: { 
                         	total: total, 
-                        	currency: 'RM' 
+                        	currency: 'MYR' 
                         }
                     }
                 ]
