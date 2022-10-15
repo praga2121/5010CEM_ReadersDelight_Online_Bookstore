@@ -95,6 +95,7 @@
 		                  <span class="fa fa-angle-right"></span>
 		                </a>
 		            </div>
+			    <br/>
 		            <div class="box box-solid">
 						<div class="box-body">
 							<h2>Monthly Top Sellers</h2>
