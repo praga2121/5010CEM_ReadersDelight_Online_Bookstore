@@ -1,3 +1,30 @@
+<?php include 'includes/session.php'; ?>
+<?php include 'includes/header.php'; ?>
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+
+	<?php include 'includes/navbar.php'; ?>
+	 
+	  <div class="content-wrapper">
+	    <div class="container">
+
+	      <!-- Main content -->
+	      <section class="content">
+	        <div class="row">
+	        	
+	        		<?php
+	        			if(isset($_SESSION['error'])){
+	        				echo "
+	        					<div class='alert alert-danger'>
+	        						".$_SESSION['error']."
+	        					</div>
+	        				";
+	        				unset($_SESSION['error']);
+	        			}
+	        		?>
+              
+              <br>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -26,5 +53,17 @@
       </div>
     </div>
     <!--contact section end-->
-  </body>
+    
+	        
+	        </div>
+	      </section>
+	     
+	    </div>
+	  </div>
+  
+  	<?php include 'includes/footer.php'; ?>
+</div>
+
+<?php include 'includes/scripts.php'; ?>
+</body>
 </html>
