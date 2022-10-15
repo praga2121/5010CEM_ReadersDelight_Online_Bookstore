@@ -33,7 +33,7 @@
 		                    <img src="images/main.png" alt="First slide">
 		                  </div>
 		                  <div class="item">
-		                    <img src="images/Promo.png" alt="Second slide">
+		                    <img src="images/promo.jpg" alt="Second slide">
 		                  </div>
 		                  <div class="item">
 		                    <img src="images/main.png" alt="Third slide">
