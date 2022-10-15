@@ -13,7 +13,7 @@
         <ul class="nav navbar-nav">
           <li><a href="index.php">HOME</a></li>
           <li><a href="about.php">ABOUT US</a></li>
-          <li><a href="">CONTACT US</a></li>
+          <li><a href="contact_us.php">CONTACT US</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">CATEGORY <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
