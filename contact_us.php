@@ -11,7 +11,7 @@
 	      <!-- Main content -->
 	      <section class="content">
 	        <div class="row">
-	        	
+	        	<div class="col-sm-9">
 	        		<?php
 	        			if(isset($_SESSION['error'])){
 	        				echo "
@@ -22,6 +22,7 @@
 	        				unset($_SESSION['error']);
 	        			}
 	        		?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -48,14 +49,13 @@
           <input type="submit" name="submit" class="send-btn" value="Send">
         </form>
       </div>
-      <div class="col-sm-3">
-	        		<?php include 'includes/sidebar.php'; ?>
-	        	</div>
     </div>
     <!--contact section end-->
-
-    
-	        
+    </div>
+	        	<div class="col-sm-3">
+	        		<?php include 'includes/sidebar.php'; ?>
+	        	</div>
+	        </div>
 	      </section>
 	     
 	    </div>
@@ -65,6 +65,5 @@
 </div>
 
 <?php include 'includes/scripts.php'; ?>
-  </body>
+</body>
 </html>
-
