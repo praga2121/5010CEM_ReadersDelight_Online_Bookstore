@@ -162,7 +162,7 @@ a:hover,a:active,a:focus{
 
 .page-header{
     margin:10px 0 20px 0;
-    font-size:22px
+    font-size:32px !important
 }
 .page-header>small{
     color:#666;
@@ -2100,6 +2100,7 @@ a:hover,a:active,a:focus{
     border-color:#280659
 }
 .btn-default:hover,.btn-default:active,.btn-default.hover{
+    color:#ddd;
     background-color:#341671
 }
 .btn-primary{
@@ -2412,8 +2413,8 @@ a:hover,a:active,a:focus{
 }
 .products-list{
     list-style:none;
-    margin:0
-    ;padding:0
+    margin:0;
+    padding:0
 }
 .products-list>.item{
     border-radius:3px;
