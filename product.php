@@ -54,34 +54,37 @@
 	        			<span class="message"></span>
 	        		</div>
 		            <div class="row">
-		            	<div class="col-sm-6">
-		            		<img src="<?php echo (!empty($product['photo'])) ? 'images/'.$product['photo'] : 'images/noimage.jpg'; ?>" width="100%" class="zoom" data-magnify-src="images/large-<?php echo $product['photo']; ?>">
-		            		<br><br>
-		            		<form class="form-inline" id="productForm">
-		            			<div class="form-group">
-			            			<div class="input-group col-sm-5">
-			            				
-			            				<span class="input-group-btn">
-			            					<button type="button" id="minus" class="btn btn-default btn-flat btn-lg"><i class="fa fa-minus"></i></button>
-			            				</span>
-							          	<input type="text" name="quantity" id="quantity" class="form-control input-lg" value="1">
-							            <span class="input-group-btn">
-							                <button type="button" id="add" class="btn btn-default btn-flat btn-lg"><i class="fa fa-plus"></i>
-							                </button>
-							            </span>
-							            <input type="hidden" value="<?php echo $product['prodid']; ?>" name="id">
-							        </div>
-			            			<button type="submit" class="btn btn-primary btn-lg btn-flat"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-			            		</div>
-		            		</form>
-		            	</div>
-		            	<div class="col-sm-6">
-		            		<h1 class="page-header"><?php echo $product['prodname']; ?></h1>
-		            		<h3><b>&#36; <?php echo number_format($product['price'], 2); ?></b></h3>
-		            		<p><b>Genre:</b> <a href="category.php?category=<?php echo $product['cat_slug']; ?>"><?php echo $product['catname']; ?></a></p>
-		            		<p><b>Description:</b></p>
-		            		<p><?php echo $product['description']; ?></p>
-		            	</div>
+						<div class="box box-solid">
+							<div class="box-body">
+								<div class="col-sm-6">
+									<img src="<?php echo (!empty($product['photo'])) ? 'images/'.$product['photo'] : 'images/noimage.jpg'; ?>" width="100%" class="zoom" data-magnify-src="images/large-<?php echo $product['photo']; ?>">
+									<br><br>
+									<form class="form-inline" id="productForm">
+										<div class="form-group">
+											<div class="input-group col-sm-5">
+												<span class="input-group-btn">
+													<button type="button" id="minus" class="btn btn-default btn-flat btn-lg"><i class="fa fa-minus"></i></button>
+												</span>
+												<input type="text" name="quantity" id="quantity" class="form-control input-lg" value="1">
+												<span class="input-group-btn">
+													<button type="button" id="add" class="btn btn-default btn-flat btn-lg"><i class="fa fa-plus"></i>
+													</button>
+												</span>
+												<input type="hidden" value="<?php echo $product['prodid']; ?>" name="id">
+											</div>
+											<button type="submit" class="btn btn-primary btn-lg btn-flat"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+										</div>
+									</form>
+								</div>
+								<div class="col-sm-6">
+									<h1 class="page-header"><?php echo $product['prodname']; ?></h1>
+									<h3><b>&#36; <?php echo number_format($product['price'], 2); ?></b></h3>
+									<p><b>Genre:</b> <a href="category.php?category=<?php echo $product['cat_slug']; ?>"><?php echo $product['catname']; ?></a></p>
+									<p><b>Description:</b></p>
+									<p><?php echo $product['description']; ?></p>
+								</div>
+							</div>
+						</div>
 		            </div>
 		            <br>
 				    <div class="fb-comments" data-href="http://localhost/readersDelight/product.php?product=<?php echo $slug; ?>" data-numposts="10" width="100%"></div> 
