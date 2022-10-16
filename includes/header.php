@@ -59,7 +59,11 @@
       overflow-wrap: break-word;
     }
     .prod-body{
-      height:300px;
+      height:310px;
+    }
+
+    .prod-text{
+      font-size:17px;
     }
 
     .box:hover {
@@ -77,7 +81,7 @@
       padding-left: 1.3em;
     }
     #trending li:before {
-      content: "\f046";
+      content: "\f02d";
       font-family: FontAwesome;
       display: inline-block;
       margin-left: -1.3em; 
