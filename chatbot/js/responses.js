@@ -8,7 +8,7 @@ function getBotResponse(input) {
         return "Hello there!";
     }
     else if(input.includes("Bye")){
-        return "Bye!";
+        return "Thank you for visiting our site";
     }
     else if(input.includes("find")){
         return "Search for a book by using the function above";
