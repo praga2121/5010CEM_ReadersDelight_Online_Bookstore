@@ -1,21 +1,19 @@
 function getBotResponse(input) {
-    //rock paper scissors
-    if (input == "rock") {
-        return "paper";
-    } else if (input == "paper") {
-        return "scissors";
-    } else if (input == "scissors") {
-        return "rock";
-    }
-
-    // Simple responses
-    if (input == "hello") {
+    
+    // // Simple responses
+    if (input.includes("Hello")) {
         return "Hello there!";
-    } else if (input == "goodbye") {
-        return "Talk to you later!";
-    } else if (input == "Praga gay") {
-        return "I Agree!";
-    }else {
+    }
+    else if (input.includes("hello")) {
+        return "Hello there!";
+    }
+    else if(input.includes("Bye")){
+        return "Bye!";
+    }
+    else if(input.includes("find")){
+        return "Search for a book by using the function above";
+    }
+    else {
         return "Try asking something else!";
     }
 }
