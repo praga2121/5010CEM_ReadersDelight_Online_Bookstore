@@ -15,3 +15,8 @@
 - Offers and Sales 
 - Admin portal (for stock management, functions such as add, delete, edit, etc.)
 - Shipping Information
+
+
+HTTP Authentication
+Username: admin
+Password: admin
