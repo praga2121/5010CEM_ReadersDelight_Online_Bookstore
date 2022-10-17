@@ -98,10 +98,11 @@
     .fa-sign-in:before{
       content:"\f090";
       font-family: FontAwesome;
-      display: inline-block;
-      margin-left: -1.3em; 
+      margin-right:5px;
       width: 1.3em;
     }
+
+
 
     /*Magnify*/
     .magnify > .magnify-lens {
