@@ -88,6 +88,22 @@
       width: 1.3em;
     }
 
+    .fa-pencil:before{
+      content: "\f040";
+      font-family: FontAwesome;
+      margin-right:5px;
+      width: 1.3em;
+    }
+
+    .fa-sign-in:before{
+      content:"\f090";
+      font-family: FontAwesome;
+      margin-right:5px;
+      width: 1.3em;
+    }
+
+
+
     /*Magnify*/
     .magnify > .magnify-lens {
       width: 100px;
