@@ -12,35 +12,39 @@
 	      <section class="content">
 	        <div class="row">
 	        	<div class="col-sm-9">
-	        		<h1 class="page-header">YOUR CART</h1>
-	        		<div class="box box-solid">
-	        			<div class="box-body">
-		        		<table class="table table-bordered">
-		        			<thead>
-		        				<th></th>
-		        				<th>Photo</th>
-		        				<th>Name</th>
-		        				<th>Price</th>
-		        				<th width="20%">Quantity</th>
-		        				<th>Subtotal</th>
-		        			</thead>
-		        			<tbody id="tbody">
-		        			</tbody>
-		        		</table>
-	        			</div>
-	        		</div>
-	        		<?php
-	        			if(isset($_SESSION['user'])){
-	        				echo "
-	        					<div id='paypal-button'></div>
-	        				";
-	        			}
-	        			else{
-	        				echo "
-	        					<h4>You need to <a href='login.php'>Login</a> to checkout.</h4>
-	        				";
-	        			}
-	        		?>
+					<div class="box box-solid">
+						<div class="box-body">
+							<h1 class="page-header">YOUR CART</h1>
+							<div class="box box-solid">
+								<div class="box-body">
+								<table class="table table-bordered">
+									<thead>
+										<th></th>
+										<th>Photo</th>
+										<th>Name</th>
+										<th>Price</th>
+										<th width="20%">Quantity</th>
+										<th>Subtotal</th>
+									</thead>
+									<tbody id="tbody">
+									</tbody>
+								</table>
+								</div>
+							</div>
+								<?php
+									if(isset($_SESSION['user'])){
+										echo "
+											<div id='paypal-button'></div>
+										";
+									}
+									else{
+										echo "
+											<h4>You need to <a href='login.php'>Login</a> to checkout.</h4>
+										";
+									}
+								?>
+						</div>
+					</div>
 	        	</div>
 	        	<div class="col-sm-3">
 	        		<?php include 'includes/sidebar.php'; ?>
