@@ -2,7 +2,7 @@
 <script type="text/javascript">
     function loginAlerts() {
 		alert("Login successful! Redirecting home page....");
-        window.location = "cart_view.php"; // Redirecting to other page.
+        window.location = "index.php"; // Redirecting to other page.
     }
 </script>
 
@@ -52,7 +52,7 @@
       		</div>
     	</form>
       <br>
-      <a href="signup.php" class="text-center">Register a new account</a><br>
+      <a href="signup.php" class="text-center"><i class="fa fa-pencil"></i>Register a new account</a><br>
       <a href="index.php"><i class="fa fa-home"></i> Back to Home Page</a>
   	</div>
 </div>

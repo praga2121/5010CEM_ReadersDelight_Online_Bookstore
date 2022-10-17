@@ -58,7 +58,7 @@
       		</div>
     	</form>
       <br>
-      <a href="login.php">Sign In Account</a><br>
+      <a href="login.php"><i class="fa fa-sign-in"></i>Sign In Account</a><br>
       <a href="index.php"><i class="fa fa-home"></i> Back to Home Page</a>
   	</div>
 </div>
