@@ -2,7 +2,7 @@
 <script type="text/javascript">
     function loginAlerts() {
 		alert("Login successful! Redirecting home page....");
-        window.location = "cart_view.php"; // Redirecting to other page.
+        window.location = "index.php"; // Redirecting to other page.
     }
 </script>
 
