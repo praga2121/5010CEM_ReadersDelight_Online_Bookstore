@@ -238,7 +238,7 @@ a:hover,a:active,a:focus{
     content:"\f0c9"
 }
 .main-header .sidebar-toggle:hover{
-    color:#fff
+    color:#660F56
 }
 .main-header .sidebar-toggle:focus,.main-header .sidebar-toggle:active{
     background:transparent
@@ -290,7 +290,8 @@ a:hover,a:active,a:focus{
 }
 .content-header>h1{
     margin:0;
-    font-size:24px
+    font-size:24px;
+    color: white;
 }
 .content-header>h1>small{
     font-size:15px;
@@ -310,7 +311,7 @@ a:hover,a:active,a:focus{
     border-radius:2px
 }
 .content-header>.breadcrumb>li>a{
-    color:#444;
+    color:white;
     text-decoration:none;
     display:inline-block
 }
@@ -465,7 +466,8 @@ a:hover,a:active,a:focus{
     left:55px
 }
 .user-panel>.info>p{
-    font-weight:600;margin-bottom:9px
+    font-weight:600;
+    margin-bottom:9px
 }
 .user-panel>.info>a{
     text-decoration:none;
@@ -525,6 +527,10 @@ a:hover,a:active,a:focus{
 }
 .sidebar-menu .active>.treeview-menu{
     display:block
+}
+
+.sidebar-menu li>a:hover{
+    background-color: #e7c3df;
 }
 
 @media (min-width:768px){
@@ -1002,8 +1008,7 @@ a:hover,a:active,a:focus{
 }
 .navbar-nav>.user-menu>.dropdown-menu>li.user-header>p{
     z-index:5;
-    color:#fff;
-    color:rgba(255,255,255,0.8);
+    color:#422680;
     font-size:17px;
     margin-top:10px
 }
