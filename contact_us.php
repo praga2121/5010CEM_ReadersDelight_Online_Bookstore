@@ -28,7 +28,7 @@
                     <!--contact section start-->                                                                                                                                                                                                                                                                                                                   
                       <div class="contact-form">
                         <h2 class="page-header">Contact Us</h2>
-                        <form target="_blank" action="https://formsubmit.co/7ebcadb642238fad09706ef074802dfa" method="POST"> 
+                        <form target="_blank" action="https://formsubmit.co/rorihupo@mailgolem.com" method="POST"> 
                           <div class="form-group has-feedback">
                             <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                           </div>
