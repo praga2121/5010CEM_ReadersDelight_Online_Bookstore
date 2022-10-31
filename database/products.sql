@@ -27,18 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `author` text NOT NULL,
-  `description` text NOT NULL,
-  `slug` varchar(200) NOT NULL,
-  `price` double NOT NULL,
-  `photo` varchar(200) NOT NULL,
-  `date_view` date NOT NULL,
-  `counter` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+ALTER TABLE `products` ADD `author` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `name`;
 
 --
 -- Dumping data for table `products`
@@ -78,8 +67,6 @@ INSERT INTO `products` (`id`, `category_id`, `name`, `author`, `description`, `s
 --
 -- Indexes for table `products`
 --
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -88,9 +75,6 @@ ALTER TABLE `products`
 --
 -- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
