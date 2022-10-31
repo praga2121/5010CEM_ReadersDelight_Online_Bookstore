@@ -26,6 +26,14 @@
 			$_SESSION['error'] = 'Passwords did not match';
 			header('location: signup.php');
 		}
+		else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){ //Validate email format
+			$_SESSION['error'] = 'Wrong email format, please try again!';
+			header('location: signup.php');
+		}
+		else if(strlen($password)<8){
+			$_SESSION['error'] = 'Password too short!Must be at least 8 characters!';
+			header('location: signup.php');
+		}
 		else{
 			$conn = $pdo->open();
 
