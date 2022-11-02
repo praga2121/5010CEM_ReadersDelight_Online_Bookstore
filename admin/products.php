@@ -214,6 +214,7 @@ function getRow(id){
       $('#edit_name').val(response.prodname);
       $('#catselected').val(response.category_id).html(response.catname);
       $('#edit_price').val(response.price);
+      $('#edit_stock').val(response.stock);
       CKEDITOR.instances["editor2"].setData(response.description);
       getCategory();
     }

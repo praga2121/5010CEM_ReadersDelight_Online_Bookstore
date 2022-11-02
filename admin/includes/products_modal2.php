@@ -59,9 +59,9 @@
                   </div>
                   <!-- Stock -->
                   <div class="form-group">
-                  <label for="edit_price" class="col-sm-1 control-label">Stock</label>
+                  <label for="edit_stock" class="col-sm-1 control-label">Stock</label>
                   <div class="col-sm-4">
-                    <input type="text" class="form-control" id="edit_price" name="price">
+                    <input type="text" class="form-control" id="edit_stock" name="stock">
                   </div>
                   <!-- stock end -->
                 </div>
