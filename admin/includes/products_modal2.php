@@ -57,6 +57,13 @@
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="edit_price" name="price">
                   </div>
+                  <!-- Stock -->
+                  <div class="form-group">
+                  <label for="edit_price" class="col-sm-1 control-label">Stock</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="edit_price" name="price">
+                  </div>
+                  <!-- stock end -->
                 </div>
                 <p><b>Description</b></p>
                 <div class="form-group">

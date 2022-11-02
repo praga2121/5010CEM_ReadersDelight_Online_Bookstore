@@ -90,6 +90,7 @@
                   <th>Photo</th>
                   <th>Description</th>
                   <th>Price</th>
+                  <th>Stock</th>
                   <th>Views Today</th>
                   <th>Tools</th>
                 </thead>
@@ -104,6 +105,7 @@
                       foreach($stmt as $row){
                         $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/noimage.jpg';
                         $counter = ($row['date_view'] == $now) ? $row['counter'] : 0;
+                        $stock = ($row['stock']) ? $row['stock'] : 0;
                         echo "
                           <tr>
                             <td>".$row['name']."</td>
@@ -113,6 +115,7 @@
                             </td>
                             <td><a href='#description' data-toggle='modal' class='btn btn-default btn-sm btn-flat desc' data-id='".$row['id']."'><i class='fa fa-search'></i> View</a></td>
                             <td>&#36; ".number_format($row['price'], 2)."</td>
+                            <td>".$stock."</td>
                             <td>".$counter."</td>
                             <td>
                               <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>

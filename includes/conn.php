@@ -2,7 +2,7 @@
 
 Class Database{
  
-	private $server = "mysql:host=localhost;dbname=bookstoredb";
+	private $server = "mysql:host=localhost;dbname=ecomm";
 	private $username = "root";
 	private $password = "";
 	private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
@@ -22,9 +22,10 @@ Class Database{
 	public function close(){
    		$this->conn = null;
  	}
+	 public function query($query){  
+		$this->stmt = $this->dbh->prepare($query);  
+		} 
  
 }
-
 $pdo = new Database();
- 
 ?>
