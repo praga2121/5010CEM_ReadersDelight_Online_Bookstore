@@ -102,6 +102,11 @@
       width: 1.3em;
     }
 
+    .fa-check-square-o:before{
+      content:"\f045";
+      font-family: FontAwesome;
+      width: 1.3em;
+    }
 
 
     /*Magnify*/
