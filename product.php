@@ -61,12 +61,11 @@
 									<br><br>
 									<form class="form-inline" id="productForm">
 										<div class="form-group">
-											<div class="input-group col-sm-6">
+											<div class="input-group col-sm-5">
 												<span class="input-group-btn">
 													<button type="button" id="minus" class="btn btn-default btn-flat btn-lg"><i class="fa fa-minus"></i></button>
 												</span>
-												<?php $maximum = $product['stock']; ?>
-												<input type="number" name="quantity" id="quantity" class="form-control input-lg" value="1" min="1" max="<?php echo $maximum?>">
+												<input type="text" name="quantity" id="quantity" class="form-control input-lg" value="1">
 												<span class="input-group-btn">
 													<button type="button" id="add" class="btn btn-default btn-flat btn-lg"><i class="fa fa-plus"></i>
 													</button>
@@ -75,7 +74,6 @@
 											</div>
 											<button type="submit" class="btn btn-primary btn-lg btn-flat"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
 										</div>
-										<h3><b>Current Stock: <?php echo ($product['stock']); ?></b></h3>
 									</form>
 								</div>
 								<div class="col-sm-6">
