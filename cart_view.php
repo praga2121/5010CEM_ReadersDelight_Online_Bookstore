@@ -17,6 +17,8 @@
 							<h1 class="page-header">YOUR CART</h1>
 							<div class="box box-solid">
 								<div class="box-body">
+								<p style="color:red;">***Please make sure your address and contact number are updated before confirming purchase!!!</p>
+								<p>If you would want to update your details, please click <span style="text-decoration:underline;"><a href="profile.php">here</a></span>.</p>
 								<table class="table table-bordered">
 									<thead>
 										<th></th>
@@ -34,7 +36,8 @@
 								<?php
 									if(isset($_SESSION['user'])){
 										echo "
-											<div id='paypal-button'></div>
+											<p style='float:right;'>Confirm your purchase now and pay with:</p><br/><br/>
+											<div style='float:right;' id='paypal-button'></div>
 										";
 									}
 									else{
