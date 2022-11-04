@@ -61,7 +61,7 @@
 									<br><br>
 									<form class="form-inline" id="productForm">
 										<div class="form-group">
-											<div class="input-group col-sm-6">
+											<div class="input-group col-sm-7">
 												<span class="input-group-btn">
 													<button type="button" id="minus" class="btn btn-default btn-flat btn-lg"><i class="fa fa-minus"></i></button>
 												</span>
@@ -76,6 +76,7 @@
 											<button type="submit" class="btn btn-primary btn-lg btn-flat"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
 										</div>
 										<h3><b>Current Stock: <?php echo ($product['stock']); ?></b></h3>
+										if(<?php ($product['stock'])?>)
 									</form>
 								</div>
 								<div class="col-sm-6">
