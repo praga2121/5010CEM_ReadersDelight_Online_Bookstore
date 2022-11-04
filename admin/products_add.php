@@ -7,7 +7,7 @@
 		$slug = slugify($name);
 		$category = $_POST['category'];
 		$price = $_POST['price'];
-		
+		$stock = $_POST['stock'];
 		$description = $_POST['description'];
 		$filename = $_FILES['photo']['name'];
 	
@@ -32,9 +32,9 @@
 			}
 
 			try{
-				$stmt = $conn->prepare("INSERT INTO products (category_id, name, description, slug, price, photo) VALUES (:category, :name, :description, :slug, :price, :photo)");
-				$stmt->execute(['category'=>$category, 'name'=>$name, 'description'=>$description, 'slug'=>$slug, 'price'=>$price, 'photo'=>$new_filename]);
-				$_SESSION['success'] = 'User added successfully';
+				$stmt = $conn->prepare("INSERT INTO products (category_id, name, stock, description, slug, price, photo) VALUES (:category, :name, :stock, :description, :slug, :price, :photo)");
+				$stmt->execute(['category'=>$category, 'name'=>$name, 'stock'=>$stock, 'description'=>$description, 'slug'=>$slug, 'price'=>$price, 'photo'=>$new_filename]);
+				$_SESSION['success'] = 'Book added successfully';
 
 			}
 			catch(PDOException $e){
