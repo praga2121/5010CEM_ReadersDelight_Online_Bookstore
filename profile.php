@@ -46,25 +46,26 @@
 	        						<div class="col-sm-3">
 	        							<h4>Name:</h4>
 	        							<h4>Email:</h4>
+										<h4>Member Since:</h4>
 	        							<h4>Contact Info:</h4>
 	        							<h4>Address:</h4>
-	        							<h4>Member Since:</h4>
 	        						</div>
 	        						<div class="col-sm-9">
 	        							<h4><?php echo $user['firstname'].' '.$user['lastname']; ?>
 	        								<span class="pull-right">
-	        									<a href="#edit" class="btn btn-success btn-flat btn-sm" data-toggle="modal"><i class="fa fa-edit"></i> Edit</a>
+	        									<a href="#edit" class="btn btn-success btn-flat btn-sm" data-toggle="modal"><i class="fa fa-edit"></i> Edit Profile</a>
 	        								</span>
 	        							</h4>
 	        							<h4><?php echo $user['email']; ?></h4>
-	        							<h4><?php echo (!empty($user['contact_info'])) ? $user['contact_info'] : 'N/a'; ?></h4>
-	        							<h4><?php echo (!empty($user['address'])) ? $user['address'] : 'N/a'; ?></h4>
-	        							<h4><?php echo date('M d, Y', strtotime($user['created_on'])); ?></h4>
+										<h4><?php echo date('M d, Y', strtotime($user['created_on'])); ?></h4>
+										<h4><?php echo (!empty($user['contact_info'])) ? $user['contact_info'] : 'N/a'; ?></h4>
+										<h4><?php echo (!empty($user['address'])) ? $user['address'] : 'N/a'; ?></h4>
 	        						</div>
 	        					</div>
 	        				</div>
 	        			</div>
 	        		</div>
+
 	        		<div class="box box-solid">
 	        			<div class="box-header with-border">
 	        				<h4 class="box-title"><i class="fa fa-calendar"></i> <b>Transaction History</b></h4>
@@ -74,7 +75,7 @@
 	        					<thead>
 	        						<th class="hidden"></th>
 	        						<th>Date</th>
-	        						<th>Transaction#</th>
+	        						<th>Transaction ID</th>
 	        						<th>Amount</th>
 	        						<th>Full Details</th>
 	        					</thead>
@@ -99,7 +100,7 @@
 	        										<td>".date('M d, Y', strtotime($row['sales_date']))."</td>
 	        										<td>".$row['pay_id']."</td>
 	        										<td>&#36; ".number_format($total, 2)."</td>
-	        										<td><button class='btn btn-sm btn-flat btn-info transact' data-id='".$row['id']."'><i class='fa fa-search'></i> View</button></td>
+	        										<td><button class='btn btn-sm btn-flat btn-info transact shipping' data-id='".$row['id']."'><i class='fa fa-search'></i> View</button></td>
 	        									</tr>
 	        								";
 	        							}
@@ -116,10 +117,10 @@
 	        			</div>
 	        		</div>
 	        	</div>
-	        	<div class="col-sm-3">
-	        		<?php include 'includes/sidebar.php'; ?>
-	        	</div>
-	        </div>
+
+			<div class="col-sm-3">
+				<?php include 'includes/sidebar.php'; ?>
+			</div>
 	      </section>
 	     
 	    </div>
@@ -146,6 +147,17 @@ $(function(){
 				$('#transid').html(response.transaction);
 				$('#detail').prepend(response.list);
 				$('#total').html(response.total);
+			}
+		});
+
+		$.ajax({
+			type: 'POST',
+			url: 'shipping.php',
+			data: {id:id},
+			dataType: 'json',
+			success:function(response){
+				$('#ship_date').html(response.ship_date);
+				$('#ship_status').html(response.ship_status);
 			}
 		});
 	});
