@@ -27,6 +27,12 @@ Then Add this Line to your Contact form.php:
 <form target="_blank" action="https://formsubmit.co/<your temporary ID/fake email>" method="POST"> 
 
 
+For Shipping status:
+0: Preparing for Shipment
+1: On the Way
+2: Received
+3: Delayed
+
 
 DON'T FORGET TO CREATE A DATABASE NAMING "bookstoredb" AND IMPORT THE SQL FILE TO RUN.
 >>DATABASE FILE IS INSIDE "database" FOLDER!

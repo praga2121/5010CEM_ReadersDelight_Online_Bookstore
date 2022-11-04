@@ -4,6 +4,10 @@
 	if(isset($_GET['pay'])){
 		$payid = $_GET['pay'];
 		$date = date('Y-m-d');
+		//ship date, default is 7 days expected to arrive so +7 days
+		$ship_date = date('Y-m-d', strtotime('+7 day'));
+		//default status code
+		$status = 0;
 
 		$conn = $pdo->open();
 
@@ -21,6 +25,9 @@
 					$stmt = $conn->prepare("INSERT INTO details (sales_id, product_id, quantity) VALUES (:sales_id, :product_id, :quantity)");
 					$stmt->execute(['sales_id'=>$salesid, 'product_id'=>$row['product_id'], 'quantity'=>$row['quantity']]);
 				}
+
+				$stmt = $conn->prepare("INSERT INTO shipping (sales_id, date, status) VALUES (:sales_id, :date, :status)");
+				$stmt->execute(['sales_id'=>$salesid, 'date'=>$ship_date, 'status'=>$status]);
 
 				$stmt = $conn->prepare("DELETE FROM cart WHERE user_id=:user_id");
 				$stmt->execute(['user_id'=>$user['id']]);
