@@ -120,7 +120,7 @@
 															<h5 class='prod-text'>".$row['author']."</h5>
 														</div>
 														<div class='box-footer'>
-															<b>&#36; ".number_format($row['price'], 2)."</b>
+															<b>RM; ".number_format($row['price'], 2)."</b>
 														</div>
 													</div>
 												</div>
@@ -159,7 +159,7 @@
 															<h5 class='prod-text'>".$row['author']."</h5>
 														</div>
 														<div class='box-footer'>
-															<b>&#36; ".number_format($row['price'], 2)."</b>
+															<b>RM; ".number_format($row['price'], 2)."</b>
 														</div>
 													</div>
 												</div>
