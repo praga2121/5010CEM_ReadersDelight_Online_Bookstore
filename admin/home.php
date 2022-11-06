@@ -122,7 +122,7 @@ function http_digest_parse($txt)
                   $total += $subtotal;
                 }
 
-                echo "<h3>&#36; ".number_format_short($total, 2)."</h3>";
+                echo "<h3>RM ".number_format_short($total, 2)."</h3>";
               ?>
               <p>Total Sales</p>
             </div>
