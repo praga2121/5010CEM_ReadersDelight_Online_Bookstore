@@ -10,7 +10,7 @@
             <div class="modal-body">
               <p>
                 Date: <span id="date"></span>
-                <span class="pull-right">Transaction#: <span id="transid"></span></span> 
+                <span class="pull-right">Transaction ID: <span id="transid"></span></span> 
               </p>
               <table class="table table-bordered">
                 <thead>
@@ -27,6 +27,7 @@
                 </tbody>
               </table>
             </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
             </div>
@@ -108,6 +109,43 @@
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
               <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button>
               </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Shipping Details -->
+<div class="modal fade" id="shipping">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b>Shipment Details</b></h4>
+            </div>
+            <div class="modal-body">
+              <p>Date: <span id="date"></span></p>
+              <p>Transaction ID: <span id="transid"></span></p>
+              <p>Expected Delivery Date: <span id="ship_date"></p>
+              <p>Delivery Status: <span id="status"></p>
+              <table class="table table-bordered">
+                <thead>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+                </thead>
+                <tbody id="detail">
+                  <tr>
+                    <td colspan="3" align="right"><b>Total</b></td>
+                    <td><span id="total"></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
             </div>
         </div>
     </div>
