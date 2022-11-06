@@ -19,14 +19,14 @@
 		$output['list'] .= "
 			<tr class='prepend_items'>
 				<td>".$row['name']."</td>
-				<td>&#36; ".number_format($row['price'], 2)."</td>
+				<td>RM ".number_format($row['price'], 2)."</td>
 				<td>".$row['quantity']."</td>
-				<td>&#36; ".number_format($subtotal, 2)."</td>
+				<td>RM ".number_format($subtotal, 2)."</td>
 			</tr>
 		";
 	}
 	
-	$output['total'] = '<b>&#36; '.number_format($total, 2).'<b>';
+	$output['total'] = '<b>RM '.number_format($total, 2).'<b>';
 	$pdo->close();
 	echo json_encode($output);
 

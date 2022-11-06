@@ -53,7 +53,7 @@
 			$output .= "
 				<tr>
 					<td colspan='5' align='right'><b>Total</b></td>
-					<td><b>RM; ".number_format($total, 2)."</b></td>
+					<td><b>RM ".number_format($total, 2)."</b></td>
 				<tr>
 			";
 
