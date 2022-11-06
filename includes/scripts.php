@@ -21,6 +21,15 @@
     CKEDITOR.replace('editor1')
   });
 </script>
+
+<script>
+  $(function () {
+    // Datatable
+    $('#example2').DataTable()
+    //CK Editor
+    CKEDITOR.replace('editor1')
+  });
+</script>
 <!--Magnify -->
 <script src="magnify/magnify.min.js"></script>
 <script>
