@@ -3,6 +3,29 @@
 	if(!isset($_SESSION['user'])){
 		header('location: index.php');
 	}
+
+	//condition for printing status
+	function statusDisplay($status){
+		switch($status){
+			case 0:
+				echo "<span style='color:#808080;'>Preparing for Shipment</span>"; //grey
+				break;
+			case 1:
+				echo "<span style='color:#000000;'>Shipment On the Way</span>"; //black
+				break;
+			case 2:
+				echo "<span style='color:#00FF00;'>Delivered</span>"; //green
+				break;
+			case 3:
+				echo "<span style='color:#FF0000;'>Delayed</span>"; //red
+				break;
+		}
+	}
+
+	//for received button display
+	function received(){
+		
+	}
 ?>
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition skin-blue layout-top-nav">
@@ -100,9 +123,61 @@
 	        										<td>".date('M d, Y', strtotime($row['sales_date']))."</td>
 	        										<td>".$row['pay_id']."</td>
 	        										<td>RM ".number_format($total, 2)."</td>
-	        										<td><button class='btn btn-sm btn-flat btn-info transact shipping' data-id='".$row['id']."'><i class='fa fa-search'></i> View</button></td>
+	        										<td><button class='btn btn-sm btn-flat btn-info transact' data-id='".$row['id']."'><i class='fa fa-search'></i> View</button></td>
 	        									</tr>
 	        								";
+	        							}
+
+	        						}
+        							catch(PDOException $e){
+										echo "There is some problem in connection: " . $e->getMessage();
+									}
+
+	        						$pdo->close();
+	        					?>
+	        					</tbody>
+	        				</table>
+	        			</div>
+	        		</div>
+
+					<div class="box box-solid">
+	        			<div class="box-header with-border">
+	        				<h4 class="box-title"><i class="fa fa-dropbox"></i> <b>Shipment Details</b></h4>
+	        			</div>
+	        			<div class="box-body">
+	        				<table class="table table-bordered" id="example2">
+	        					<thead>
+	        						<th class="hidden"></th>
+	        						<th>Expected Delivery Date</th>
+	        						<th>Transaction ID</th>
+	        						<th>Status</th>
+	        						<th>Full Details</th>
+	        					</thead>
+	        					<tbody>
+	        					<?php
+	        						$conn = $pdo->open();
+
+	        						try{
+	        							$stmt = $conn->prepare("SELECT * FROM sales WHERE user_id=:user_id ORDER BY sales_date DESC");
+	        							$stmt->execute(['user_id'=>$user['id']]);
+	        							foreach($stmt as $row){
+											$pay_id = $row['pay_id'];
+	        								$stmt2 = $conn->prepare("SELECT * FROM shipping WHERE sales_id=:sales_id ORDER BY date DESC");
+	        								$stmt2->execute(['sales_id'=>$row['id']]);
+
+											foreach($stmt2 as $row2){
+												echo "
+												<tr>
+													<td class='hidden'></td>
+													<td>".date('M d, Y', strtotime($row2['date']))."</td>
+													<td>".$pay_id."</td>
+													<td>";statusDisplay($row2['status']); echo"</td>
+													<td><button class='btn btn-sm btn-flat btn-info shipping' data-id='".$row2['sales_id']."'><i class='fa fa-search'></i> View</button></td>
+
+												</tr>
+												";
+											}
+											
 	        							}
 
 	        						}
@@ -149,22 +224,36 @@ $(function(){
 				$('#total').html(response.total);
 			}
 		});
+	});
 
+	$("#transaction").on("hidden.bs.modal", function () {
+	    $('.prepend_items').remove();
+	});
+
+	$(document).on('click', '.shipping', function(e){
+		e.preventDefault();
+		$('#shipping').modal('show');
+		var id = $(this).data('id');
 		$.ajax({
 			type: 'POST',
 			url: 'shipping.php',
 			data: {id:id},
 			dataType: 'json',
 			success:function(response){
+				$('#date').html(response.date);
+				$('#transid').html(response.transaction);
 				$('#ship_date').html(response.ship_date);
-				$('#ship_status').html(response.ship_status);
+				$('$status').html(response.status);
+				$('#detail').prepend(response.list);
+				$('#total').html(response.total);
 			}
 		});
 	});
 
-	$("#transaction").on("hidden.bs.modal", function () {
+	$("#shipping").on("hidden.bs.modal", function () {
 	    $('.prepend_items').remove();
 	});
+	
 });
 </script>
 </body>
