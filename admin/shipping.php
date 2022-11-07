@@ -79,18 +79,19 @@
                         $firstname = $row['firstname'];
                         $lastname = $row['lastname'];
 
-                        $stmt2 = $conn->prepare("SELECT * FROM shipping WHERE sales_id=:sales_id ORDER BY date DESC");
+                        $stmt2 = $conn->prepare("SELECT * FROM shipping WHERE sales_id=:sales_id ORDER BY ship_date DESC");
                         $stmt2->execute(['sales_id'=>$row['salesid']]);
                         foreach($stmt2 as $row2){
                             echo "
                                 <tr>
                                 <td class='hidden'></td>
-                                <td>".date('M d, Y', strtotime($row2['date']))."</td>
+                                <td>".date('M d, Y', strtotime($row2['ship_date']))."</td>
                                 <td>".$row2['id']."</td>
                                 <td>".$pay_id."</td>
                                 <td>".$firstname.' '.$lastname."</td>
-                                ";statusDisplay($row2['status']); echo"
-                                <td><button type='button' class='btn btn-default btn-sm btn-flat transact' data-id='".$row['id']."'><i class='fa fa-search'></i> View</button></td>
+                                ";statusDisplay($row2['ship_status']); echo"
+                                <td><button type='button' class='btn btn-default btn-sm btn-flat transact' data-id='".$row2['sales_id']."'><i class='fa fa-search'></i> View</button>
+                                <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row2['sales_id']."'><i class='fa fa-edit'></i> Edit</button></td>
                                 </tr>
                             ";
                         }
@@ -112,7 +113,7 @@
      
   </div>
   	<?php include 'includes/footer.php'; ?>
-    <?php include '../includes/profile_modal.php'; ?>
+    <?php include 'includes/shipping_modal.php'; ?>
 
 </div>
 <!-- ./wrapper -->
@@ -163,9 +164,9 @@ $(function(){
 </script>
 <script>
 $(function(){
-    $(document).on('click', '.shipping', function(e){
+    $(document).on('click', '.transact', function(e){
 		e.preventDefault();
-		$('#shipping').modal('show');
+		$('#transaction').modal('show');
 		var id = $(this).data('id');
 		$.ajax({
 			type: 'POST',
@@ -176,16 +177,27 @@ $(function(){
 				$('#date').html(response.date);
 				$('#transid').html(response.transaction);
 				$('#ship_date').html(response.ship_date);
-				$('$status').html(response.status);
+				$('#ship_status').html(response.ship_status);
 				$('#detail').prepend(response.list);
 				$('#total').html(response.total);
 			}
 		});
 	});
 
-	$("#shipping").on("hidden.bs.modal", function () {
+	$("#transaction").on("hidden.bs.modal", function () {
 	    $('.prepend_items').remove();
 	});
+
+  $(document).on('click', '.edit', function(e){
+    e.preventDefault();
+    $('#edit').modal('show');
+    var id = $(this).data('id');
+    getRow(id);
+  });
+
+  $("#edit").on("hidden.bs.modal", function () {
+      $('.append_items').remove();
+  });
 });
 </script>
 </body>

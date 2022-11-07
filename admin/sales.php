@@ -90,7 +90,7 @@
      
   </div>
   	<?php include 'includes/footer.php'; ?>
-    <?php include '../includes/profile_modal.php'; ?>
+    <?php include 'includes/transact_modal.php'; ?>
 
 </div>
 <!-- ./wrapper -->
