@@ -91,15 +91,16 @@
 
 	        		<div class="box box-solid">
 	        			<div class="box-header with-border">
-	        				<h4 class="box-title"><i class="fa fa-calendar"></i> <b>Transaction History</b></h4>
+	        				<h4 class="box-title"><i class="fa fa-calendar"></i> <b>Transaction and Shipping History</b></h4>
 	        			</div>
 	        			<div class="box-body">
 	        				<table class="table table-bordered" id="example1">
 	        					<thead>
 	        						<th class="hidden"></th>
-	        						<th>Date</th>
-	        						<th>Transaction ID</th>
-	        						<th>Amount</th>
+	        						<th>Transaction Date</th>
+									<th>Expected Delivery Date</th>
+									<th>Delivery Status</th>
+	        						<th>Total Amount</th>
 	        						<th>Full Details</th>
 	        					</thead>
 	        					<tbody>
@@ -110,6 +111,8 @@
 	        							$stmt = $conn->prepare("SELECT * FROM sales WHERE user_id=:user_id ORDER BY sales_date DESC");
 	        							$stmt->execute(['user_id'=>$user['id']]);
 	        							foreach($stmt as $row){
+											$sales_date = $row['sales_date'];
+											$sales_id = $row['id'];
 	        								$stmt2 = $conn->prepare("SELECT * FROM details LEFT JOIN products ON products.id=details.product_id WHERE sales_id=:id");
 	        								$stmt2->execute(['id'=>$row['id']]);
 	        								$total = 0;
@@ -117,67 +120,23 @@
 	        									$subtotal = $row2['price']*$row2['quantity'];
 	        									$total += $subtotal;
 	        								}
-	        								echo "
-	        									<tr>
-	        										<td class='hidden'></td>
-	        										<td>".date('M d, Y', strtotime($row['sales_date']))."</td>
-	        										<td>".$row['pay_id']."</td>
-	        										<td>RM ".number_format($total, 2)."</td>
-	        										<td><button class='btn btn-sm btn-flat btn-info transact' data-id='".$row['id']."'><i class='fa fa-search'></i> View</button></td>
-	        									</tr>
-	        								";
-	        							}
 
-	        						}
-        							catch(PDOException $e){
-										echo "There is some problem in connection: " . $e->getMessage();
-									}
+											$stmt3 = $conn->prepare("SELECT * FROM shipping WHERE sales_id=:sales_id");
+	        								$stmt3->execute(['sales_id'=>$row['id']]);
 
-	        						$pdo->close();
-	        					?>
-	        					</tbody>
-	        				</table>
-	        			</div>
-	        		</div>
-
-					<div class="box box-solid">
-	        			<div class="box-header with-border">
-	        				<h4 class="box-title"><i class="fa fa-dropbox"></i> <b>Shipment Details</b></h4>
-	        			</div>
-	        			<div class="box-body">
-	        				<table class="table table-bordered" id="example2">
-	        					<thead>
-	        						<th class="hidden"></th>
-	        						<th>Expected Delivery Date</th>
-	        						<th>Transaction ID</th>
-	        						<th>Status</th>
-	        						<th>Full Details</th>
-	        					</thead>
-	        					<tbody>
-	        					<?php
-	        						$conn = $pdo->open();
-
-	        						try{
-	        							$stmt = $conn->prepare("SELECT * FROM sales WHERE user_id=:user_id ORDER BY sales_date DESC");
-	        							$stmt->execute(['user_id'=>$user['id']]);
-	        							foreach($stmt as $row){
-											$pay_id = $row['pay_id'];
-	        								$stmt2 = $conn->prepare("SELECT * FROM shipping WHERE sales_id=:sales_id ORDER BY date DESC");
-	        								$stmt2->execute(['sales_id'=>$row['id']]);
-
-											foreach($stmt2 as $row2){
+											foreach($stmt3 as $row3){
 												echo "
 												<tr>
 													<td class='hidden'></td>
-													<td>".date('M d, Y', strtotime($row2['date']))."</td>
-													<td>".$pay_id."</td>
-													<td>";statusDisplay($row2['status']); echo"</td>
-													<td><button class='btn btn-sm btn-flat btn-info shipping' data-id='".$row2['sales_id']."'><i class='fa fa-search'></i> View</button></td>
+													<td>".date('M d, Y', strtotime($sales_date))."</td>
+													<td>".date('M d, Y', strtotime($row3['ship_date']))."</td>
+													<td>";statusDisplay($row3['ship_status']); echo"</td>
+													<td>RM ".number_format($total, 2)."</td>
+													<td><button class='btn btn-sm btn-flat btn-info transact' data-id='".$sales_id."'><i class='fa fa-search'></i> View</button></td>
 
 												</tr>
 												";
 											}
-											
 	        							}
 
 	        						}
@@ -191,6 +150,7 @@
 	        				</table>
 	        			</div>
 	        		</div>
+
 	        	</div>
 
 			<div class="col-sm-3">
@@ -220,6 +180,8 @@ $(function(){
 			success:function(response){
 				$('#date').html(response.date);
 				$('#transid').html(response.transaction);
+				$('#ship_date').html(response.ship_date);
+				$('#ship_status').html(response.ship_status);
 				$('#detail').prepend(response.list);
 				$('#total').html(response.total);
 			}
@@ -253,8 +215,8 @@ $(function(){
 	$("#shipping").on("hidden.bs.modal", function () {
 	    $('.prepend_items').remove();
 	});
-	
 });
+
 </script>
 </body>
 </html>
