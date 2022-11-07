@@ -36,8 +36,7 @@
 								<?php
 									if(isset($_SESSION['user'])){
 										echo "
-											<p style='float:right;'>Confirm your purchase now and pay with:</p><br/><br/>
-											<div style='float:right;' id='paypal-button'></div>
+											<p style='float:left;'>Confirm your purchase now and pay with: <div style='float:right;' id='paypal-button'></div></p>
 										";
 									}
 									else{
