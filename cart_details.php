@@ -35,7 +35,7 @@
 						<td><button type='button' data-id='".$row['cartid']."' class='btn btn-danger btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
 						<td><img src='".$image."' width='30px' height='30px'></td>
 						<td>".$row['name']."</td>
-						<td>RM; ".number_format($row['price'], 2)."</td>
+						<td>RM ".number_format($row['price'], 2)."</td>
 						<td class='input-group'>
 							<span class='input-group-btn'>
             					<button type='button' id='minus' class='btn btn-default btn-flat minus' data-id='".$row['cartid']."'><i class='fa fa-minus'></i></button>
@@ -46,7 +46,7 @@
 				                </button>
 				            </span>
 						</td>
-						<td>RM; ".number_format($subtotal, 2)."</td>
+						<td>RM ".number_format($subtotal, 2)."</td>
 					</tr>
 				";
 			}
