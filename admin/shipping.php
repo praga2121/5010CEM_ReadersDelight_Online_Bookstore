@@ -30,42 +30,53 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Sales History
+        Shipment Details
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Sales</li>
+        <li class="active">Shipping</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
+      <?php
+        if(isset($_SESSION['error'])){
+          echo "
+            <div class='alert alert-danger alert-dismissible'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4><i class='icon fa fa-warning'></i> Error!</h4>
+              ".$_SESSION['error']."
+            </div>
+          ";
+          unset($_SESSION['error']);
+        }
+        if(isset($_SESSION['success'])){
+          echo "
+            <div class='alert alert-success alert-dismissible'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4><i class='icon fa fa-check'></i> Success!</h4>
+              ".$_SESSION['success']."
+            </div>
+          ";
+          unset($_SESSION['success']);
+        }
+      ?>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <div class="pull-right">
-                <form method="POST" class="form-inline" action="sales_print.php">
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range">
-                  </div>
-                  <button type="submit" class="btn btn-default btn-sm btn-flat" name="print"><span class="glyphicon glyphicon-print"></span> Print</button>
-                </form>
-              </div>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
                   <th class="hidden"></th>
-                  <th>Date</th>
+                  <th>Expected Date</th>
                   <th>Shipping ID</th>
                   <th>Transaction ID</th>
                   <th>Buyer Name</th>
                   <th>Status</th>
-                  <th>Full Details</th>
+                  <th>Tools</th>
                 </thead>
                 <tbody>
                   <?php
@@ -119,86 +130,50 @@
 <!-- ./wrapper -->
 
 <?php include 'includes/scripts.php'; ?>
-<!-- Date Picker -->
-<script>
-$(function(){
-  //Date picker
-  $('#datepicker_add').datepicker({
-    autoclose: true,
-    format: 'yyyy-mm-dd'
-  })
-  $('#datepicker_edit').datepicker({
-    autoclose: true,
-    format: 'yyyy-mm-dd'
-  })
 
-  //Timepicker
-  $('.timepicker').timepicker({
-    showInputs: false
-  })
-
-  //Date range picker
-  $('#reservation').daterangepicker()
-  //Date range picker with time picker
-  $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' })
-  //Date range as a button
-  $('#daterange-btn').daterangepicker(
-    {
-      ranges   : {
-        'Today'       : [moment(), moment()],
-        'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-        'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-        'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-        'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-      },
-      startDate: moment().subtract(29, 'days'),
-      endDate  : moment()
-    },
-    function (start, end) {
-      $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-    }
-  )
-  
-});
-</script>
 <script>
 $(function(){
     $(document).on('click', '.transact', function(e){
 		e.preventDefault();
 		$('#transaction').modal('show');
 		var id = $(this).data('id');
-		$.ajax({
-			type: 'POST',
-			url: 'ship_details.php',
-			data: {id:id},
-			dataType: 'json',
-			success:function(response){
-				$('#date').html(response.date);
-				$('#transid').html(response.transaction);
-				$('#ship_date').html(response.ship_date);
-				$('#ship_status').html(response.ship_status);
-				$('#detail').prepend(response.list);
-				$('#total').html(response.total);
-			}
-		});
-	});
-
-	$("#transaction").on("hidden.bs.modal", function () {
-	    $('.prepend_items').remove();
+		ship_details(id);
 	});
 
   $(document).on('click', '.edit', function(e){
     e.preventDefault();
     $('#edit').modal('show');
     var id = $(this).data('id');
-    getRow(id);
+    ship_details(id);
   });
+
+  $("#transaction").on("hidden.bs.modal", function () {
+	    $('.prepend_items').remove();
+	});
 
   $("#edit").on("hidden.bs.modal", function () {
       $('.append_items').remove();
   });
 });
+
+function ship_details(id){
+  $.ajax({
+			type: 'POST',
+			url: 'ship_details.php',
+			data: {id:id},
+			dataType: 'json',
+			success:function(response){
+        $('#sales_id').val(response.sales_id);
+				$('#date').html(response.date);
+				$('#transid').html(response.transaction);
+				$('#ship_date').val(response.ship_date).html(response.ship_date);
+				$('#ship_status').html(response.ship_status);
+        $('#status_code').val(response.status_code).html(response.ship_status);
+				$('#detail').prepend(response.list);
+				$('#total').html(response.total);
+			}
+		});
+}
 </script>
 </body>
 </html>
