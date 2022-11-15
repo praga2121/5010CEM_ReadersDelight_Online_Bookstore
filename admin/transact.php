@@ -26,7 +26,7 @@
 		";
 	}
 	
-	$output['total'] = '<b>RM; '.number_format($total, 2).'<b>';
+	$output['total'] = '<b>RM: '.number_format($total, 2).'<b>';
 	$pdo->close();
 	echo json_encode($output);
 

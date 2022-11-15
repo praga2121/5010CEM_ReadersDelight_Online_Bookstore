@@ -78,7 +78,7 @@
 						<td><button type='button' data-id='".$row['productid']."' class='btn btn-danger btn-flat cart_delete'><i class='fa fa-remove'></i></button></td>
 						<td><img src='".$image."' width='30px' height='30px'></td>
 						<td>".$product['name']."</td>
-						<td>RM; ".number_format($product['price'], 2)."</td>
+						<td>RM: ".number_format($product['price'], 2)."</td>
 						<td class='input-group'>
 							<span class='input-group-btn'>
             					<button type='button' id='minus' class='btn btn-default btn-flat minus' data-id='".$row['productid']."'><i class='fa fa-minus'></i></button>
@@ -89,7 +89,7 @@
 				                </button>
 				            </span>
 						</td>
-						<td>RM; ".number_format($subtotal, 2)."</td>
+						<td>RM: ".number_format($subtotal, 2)."</td>
 					</tr>
 				";
 				
@@ -98,7 +98,7 @@
 			$output .= "
 				<tr>
 					<td colspan='5' align='right'><b>Total</b></td>
-					<td><b>RM; ".number_format($total, 2)."</b></td>
+					<td><b>RM: ".number_format($total, 2)."</b></td>
 				<tr>
 			";
 		}
