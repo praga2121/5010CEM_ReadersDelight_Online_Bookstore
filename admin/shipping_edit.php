@@ -2,13 +2,14 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['edit'])){
-		$sales_id = $_POST['sales_id'];
-		$ship_date = $_POST['ship_date'];
-		$ship_status = $_POST['ship_status'];
+		$id = $_POST['id'];
+		$date = $_POST['date'];
+		$status = $_POST['status'];
+		$conn = $pdo->open();
 
 		try{
-			$stmt = $conn->prepare("UPDATE shipping SET ship_date=:ship_date, ship_status=:ship_status WHERE sales_id=:sales_id");
-			$stmt->execute(['ship_date'=>$ship_date, 'ship_status'=>$ship_status, 'sales_id'=>$sales_id]);
+			$stmt = $conn->prepare("UPDATE shipping SET ship_date=:date, ship_status=:status WHERE sales_id=:id");
+			$stmt->execute(['date'=>$date, 'status'=>$status, 'id'=>$id]);
 			$_SESSION['success'] = 'Shipping info updated successfully';
 		}
 		catch(PDOException $e){
@@ -18,7 +19,7 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up edit product form first';
+		$_SESSION['error'] = 'Fill up edit form first';
 	}
 
 	header('location: shipping.php');

@@ -102,7 +102,6 @@
                                 <td>".$firstname.' '.$lastname."</td>
                                 ";statusDisplay($row2['ship_status']); echo"
                                 <td><button type='button' class='btn btn-default btn-sm btn-flat transact' data-id='".$row2['sales_id']."'><i class='fa fa-search'></i> View</button>
-                                <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row2['sales_id']."'><i class='fa fa-edit'></i> Edit</button></td>
                                 </tr>
                             ";
                         }
@@ -125,6 +124,7 @@
   </div>
   	<?php include 'includes/footer.php'; ?>
     <?php include 'includes/shipping_modal.php'; ?>
+  </div>
 
 </div>
 <!-- ./wrapper -->
@@ -137,43 +137,29 @@ $(function(){
 		e.preventDefault();
 		$('#transaction').modal('show');
 		var id = $(this).data('id');
-		ship_details(id);
-	});
-
-  $(document).on('click', '.edit', function(e){
-    e.preventDefault();
-    $('#edit').modal('show');
-    var id = $(this).data('id');
-    ship_details(id);
-  });
-
-  $("#transaction").on("hidden.bs.modal", function () {
-	    $('.prepend_items').remove();
-	});
-
-  $("#edit").on("hidden.bs.modal", function () {
-      $('.append_items').remove();
-  });
-});
-
-function ship_details(id){
-  $.ajax({
+		$.ajax({
 			type: 'POST',
 			url: 'ship_details.php',
 			data: {id:id},
 			dataType: 'json',
 			success:function(response){
-        $('#sales_id').val(response.sales_id);
+        $('.sales_id').val(response.sales_id);
 				$('#date').html(response.date);
 				$('#transid').html(response.transaction);
-				$('#ship_date').val(response.ship_date).html(response.ship_date);
+				$('#ship_date').html(response.ship_date);
 				$('#ship_status').html(response.ship_status);
-        $('#status_code').val(response.status_code).html(response.ship_status);
+        $('#status_code').html(response.ship_status);
 				$('#detail').prepend(response.list);
 				$('#total').html(response.total);
 			}
 		});
-}
+	});
+
+  $("#transaction").on("hidden.bs.modal", function () {
+	    $('.prepend_items').remove();
+	});
+});
+
 </script>
 </body>
 </html>

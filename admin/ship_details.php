@@ -13,7 +13,7 @@
 
 	$total = 0;
 	foreach($stmt as $row){
-		$output['sales_id'] = $row['id'];
+		$output['sales_id'] = $row['sales_id'];
 		$output['transaction'] = $row['pay_id'];
 		$output['date'] = date('M d, Y', strtotime($row['sales_date']));
 		$output['ship_date'] = date('M d, Y', strtotime($row['ship_date']));
@@ -31,7 +31,6 @@
 				$output['ship_status'] = "Delayed"; //red
 				break;
 		}
-		$output['status_code'] = $row['ship_status'];
 		$subtotal = $row['price']*$row['quantity'];
 		$total += $subtotal;
 		$output['list'] .= "
