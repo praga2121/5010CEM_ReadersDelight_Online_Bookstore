@@ -25,7 +25,7 @@
 										<th>Photo</th>
 										<th>Name</th>
 										<th>Price</th>
-										<th width="20%">Quantity</th>
+										<th width="10%">Quantity</th>
 										<th>Subtotal</th>
 									</thead>
 									<tbody id="tbody">
@@ -38,6 +38,7 @@
 										echo "
 											<p style='float:left;'>Confirm your purchase now and pay with: <div style='float:right;' id='paypal-button'></div></p>
 										";
+										
 									}
 									else{
 										echo "
@@ -82,55 +83,7 @@ $(function(){
 		});
 	});
 
-	$(document).on('click', '.minus', function(e){
-		e.preventDefault();
-		var id = $(this).data('id');
-		var qty = $('#qty_'+id).val();
-		if(qty>1){
-			qty--;
-		}
-		$('#qty_'+id).val(qty);
-		$.ajax({
-			type: 'POST',
-			url: 'cart_update.php',
-			data: {
-				id: id,
-				qty: qty,
-			},
-			dataType: 'json',
-			success: function(response){
-				if(!response.error){
-					getDetails();
-					getCart();
-					getTotal();
-				}
-			}
-		});
-	});
 
-	$(document).on('click', '.add', function(e){
-		e.preventDefault();
-		var id = $(this).data('id');
-		var qty = $('#qty_'+id).val();
-		qty++;
-		$('#qty_'+id).val(qty);
-		$.ajax({
-			type: 'POST',
-			url: 'cart_update.php',
-			data: {
-				id: id,
-				qty: qty,
-			},
-			dataType: 'json',
-			success: function(response){
-				if(!response.error){
-					getDetails();
-					getCart();
-					getTotal();
-				}
-			}
-		});
-	});
 
 	getDetails();
 	getTotal();

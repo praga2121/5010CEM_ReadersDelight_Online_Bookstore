@@ -37,14 +37,9 @@
 						<td>".$row['name']."</td>
 						<td>RM ".number_format($row['price'], 2)."</td>
 						<td class='input-group'>
-							<span class='input-group-btn'>
-            					<button type='button' id='minus' class='btn btn-default btn-flat minus' data-id='".$row['cartid']."'><i class='fa fa-minus'></i></button>
-            				</span>
+							
             				<input type='text' class='form-control' value='".$row['quantity']."' id='qty_".$row['cartid']."'>
-				            <span class='input-group-btn'>
-				                <button type='button' id='add' class='btn btn-default btn-flat add' data-id='".$row['cartid']."'><i class='fa fa-plus'></i>
-				                </button>
-				            </span>
+				            
 						</td>
 						<td>RM ".number_format($subtotal, 2)."</td>
 					</tr>
