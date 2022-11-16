@@ -24,6 +24,13 @@
 				foreach($stmt as $row){
 					$stmt = $conn->prepare("INSERT INTO details (sales_id, product_id, quantity) VALUES (:sales_id, :product_id, :quantity)");
 					$stmt->execute(['sales_id'=>$salesid, 'product_id'=>$row['product_id'], 'quantity'=>$row['quantity']]);
+
+					//Start of stock deduction
+					$sql = "UPDATE products SET stock = stock - 1 WHERE id = products.id";
+					// Prepare statement
+					$stmt = $conn->prepare($sql);
+					// execute the query
+					$stmt->execute();					
 				}
 
 				$stmt = $conn->prepare("INSERT INTO shipping (sales_id, date, status) VALUES (:sales_id, :date, :status)");
