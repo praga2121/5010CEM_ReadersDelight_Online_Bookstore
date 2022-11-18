@@ -1,7 +1,7 @@
 <!--script file for successfully logged in alerts and page redirecting-->
 <script type="text/javascript">
     function loginAlerts() {
-		alert("Login successful! Redirecting home page....");
+		alert("Login successful! Redirecting to home page....");
         window.location = "index.php"; // Redirecting to other page.
     }
 </script>
