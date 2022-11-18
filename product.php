@@ -41,19 +41,19 @@
 <div class="wrapper">
 
 	<?php include 'includes/navbar.php'; ?>
-	 
-	  <div class="content-wrapper">
-	    <div class="container">
+		
+		<div class="content-wrapper">
+			<div class="container">
 
-	      <!-- Main content -->
-	      <section class="content">
-	        <div class="row">
-	        	<div class="col-sm-9">
-	        		<div class="callout" id="callout" style="display:none">
-	        			<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
-	        			<span class="message"></span>
-	        		</div>
-		            <div class="row">
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="callout" id="callout" style="display:none">
+							<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+							<span class="message"></span>
+						</div>
+						<div class="row">
 						<div class="box box-solid">
 							<div class="box-body">
 								<div class="col-sm-6">
@@ -88,21 +88,21 @@
 								</div>
 							</div>
 						</div>
-		            </div>
-		            <br>
-				    <div class="fb-comments" data-href="http://localhost/readersDelight/product.php?product=<?php echo $slug; ?>" data-numposts="10" width="100%"></div> 
-	        	</div>
-	        	<div class="col-sm-3">
-	        		<?php include 'includes/sidebar.php'; ?>
-	        	</div>
-	        </div>
-	      </section>
-	     
-	    </div>
-	  </div>
-  	<?php $pdo->close(); ?>
-  	<?php include 'includes/footer.php'; ?>
-</div>
+						</div>
+						<br>
+						<div class="fb-comments" data-href="http://localhost/readersDelight/product.php?product=<?php echo $slug; ?>" data-numposts="10" width="100%"></div> 
+					</div>
+					<div class="col-sm-3">
+						<?php include 'includes/sidebar.php'; ?>
+					</div>
+				</div>
+			</section>
+			
+			</div>
+		</div>
+		<?php $pdo->close(); ?>
+		<?php include 'includes/footer.php'; ?>
+	</div>
 
 <?php include 'includes/scripts.php'; ?>
 <script>
