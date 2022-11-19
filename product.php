@@ -109,8 +109,11 @@
 $(function(){
 	$('#add').click(function(e){
 		e.preventDefault();
+		<?php $maximum = $product['stock']; ?>
 		var quantity = $('#quantity').val();
-		quantity++;
+		if(quantity < <?php echo $maximum?>){
+			quantity++;
+		}
 		$('#quantity').val(quantity);
 	});
 	$('#minus').click(function(e){
