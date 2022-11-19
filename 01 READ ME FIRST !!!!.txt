@@ -21,7 +21,7 @@ Username4: random1@mail.com
 Password4: Random_1234
 
 Username5: darkseid@gmail.com
-Password5: DarkSeid_4555
+Password5: DarkSeid@4555
 
 
 For the paypal developer dashboard, you may test as below;
