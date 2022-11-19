@@ -5,7 +5,7 @@
 <?php
 $realm = 'Restricted area';
 
-//user => password
+//username => password
 $users = array('admin' => 'admin', 'guest' => 'guest');
 
 
@@ -226,7 +226,8 @@ function http_digest_parse($txt)
   $sales = array();
   for( $m = 1; $m <= 12; $m++ ) {
     try{
-      $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products ON products.id=details.product_id WHERE MONTH(sales_date)=:month AND YEAR(sales_date)=:year");
+      $stmt = $conn->prepare("SELECT * FROM details LEFT JOIN sales ON sales.id=details.sales_id LEFT JOIN products
+                      ON products.id=details.product_id WHERE MONTH(sales_date)=:month AND YEAR(sales_date)=:year");
       $stmt->execute(['month'=>$m, 'year'=>$year]);
       $total = 0;
       foreach($stmt as $srow){
