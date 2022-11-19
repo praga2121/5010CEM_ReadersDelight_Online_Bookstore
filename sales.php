@@ -33,7 +33,7 @@
 					$stmt->execute(['product_id'=>$row['product_id'], 'quantity'=>$row['quantity']]);					
 				}
 
-				$stmt = $conn->prepare("INSERT INTO shipping (sales_id, date, status) VALUES (:sales_id, :date, :status)");
+				$stmt = $conn->prepare("INSERT INTO shipping (sales_id, ship_date, ship_status) VALUES (:sales_id, :date, :status)");
 				$stmt->execute(['sales_id'=>$salesid, 'date'=>$ship_date, 'status'=>$status]);
 
 				$stmt = $conn->prepare("DELETE FROM cart WHERE user_id=:user_id");
