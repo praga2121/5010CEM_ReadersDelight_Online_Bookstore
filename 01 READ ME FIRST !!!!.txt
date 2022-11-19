@@ -7,8 +7,21 @@ Password: password
 
 USER LOGIN:
 
-Username: user@mail.com
-Password: user123
+Username1: user@mail.com
+Password1: user123
+
+//for new db
+Username2: test@gmail.com
+Password2: test
+
+Username3: hello@ymail.com
+Password3: hello1234
+
+Username4: random1@mail.com
+Password4: Random_1234
+
+Username5: darkseid@gmail.com
+Password5: DarkSeid_4555
 
 
 For the paypal developer dashboard, you may test as below;
