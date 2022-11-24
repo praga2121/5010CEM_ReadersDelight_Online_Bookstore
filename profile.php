@@ -129,8 +129,8 @@
 												<tr>
 													<td class='hidden'></td>
 													<td>".date('M d, Y', strtotime($sales_date))."</td>
-													<td>".date('M d, Y', strtotime($row3['date']))."</td>
-													<td>";statusDisplay($row3['status']); echo"</td>
+													<td>".date('M d, Y', strtotime($row3['ship_date']))."</td>
+													<td>";statusDisplay($row3['ship_status']); echo"</td>
 													<td>RM ".number_format($total, 2)."</td>
 													<td><button class='btn btn-sm btn-flat btn-info transact' data-id='".$sales_id."'><i class='fa fa-search'></i> View</button></td>
 

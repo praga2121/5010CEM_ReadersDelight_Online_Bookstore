@@ -7,8 +7,21 @@ Password: password
 
 USER LOGIN:
 
-Username: user@mail.com
-Password: user123
+Username1: user@mail.com
+Password1: user123
+
+//for new db
+Username2: test@gmail.com
+Password2: test
+
+Username3: hello@ymail.com
+Password3: hello1234
+
+Username4: random1@mail.com
+Password4: Random_1234
+
+Username5: darkseid@gmail.com
+Password5: DarkSeid@4555
 
 
 For the paypal developer dashboard, you may test as below;
@@ -36,9 +49,5 @@ For Shipping status:
 
 DON'T FORGET TO CREATE A DATABASE NAMING "bookstoredb" AND IMPORT THE SQL FILE TO RUN.
 >>DATABASE FILE IS INSIDE "database" FOLDER!
-
-
->>NEW PRODUCTS SQL FILE IS INSIDE "database" FOLDER!
-IF CANNOT RUN THE SQL FILE, OPEN THE FILE, COPY AND RUN LINE 30 FIRST. THEN ONLY COPY THE INSERT THE DATA. CODE STARTS FROM LINE 36 TO LINE 61.
 
 
