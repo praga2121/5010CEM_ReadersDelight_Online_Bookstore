@@ -33,6 +33,23 @@
     <!-- Google Recaptcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/653f6e9fa84dd54dc4869ed2/1hdvsg8js';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
   	<!-- Custom CSS -->
     <style type="text/css">
     /* Small devices (tablets, 768px and up) */
@@ -115,6 +132,8 @@
       height: 100px;
     }
 
+
+    
     </style>
 
 </head>

@@ -2,7 +2,8 @@
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
-
+<!-- Paypal Express -->
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 	<?php include 'includes/navbar.php'; ?>
 	 
 	  <div class="content-wrapper">
